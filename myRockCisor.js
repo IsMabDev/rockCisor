@@ -10,15 +10,18 @@ function getPlayerChoice() {
 
   do {
     playerChoice = prompt("Please enter your choice: scissors, rock or paper");
+    //if the user click on cancel the result is undefined
     playerChoice ??= playerChoice = "nullish";
     if (playerChoice === "nullish") return;
+
+    //if the result is different from undefined it's treated as string
     playerChoice = playerChoice.toLowerCase();
   } while (!gameArray.includes(playerChoice.toLowerCase()));
   return playerChoice;
 }
 
 function playRound(playerChoice, theComputerChoice) {
-  //theComputerChoice = getComputerChoice();
+  //this is a first solution to be improved
   playerChoice ??= playerChoice = "nullish";
   if (playerChoice === "nullish") return "The game is canceled by user";
 
@@ -63,9 +66,12 @@ function game() {
     console.log(playRound(playerSelection, computerSelection));
   }
 }
+
+//this is to test one game
 const computerSelection = getComputerChoice();
 const playerSelection = getPlayerChoice();
 console.log(playRound(playerSelection, computerSelection));
+
 // console.log(getPlayerChoice("paper"));
 // console.log(getPlayerChoice("paper"));
 // console.log(getPlayerChoice("paper"));
