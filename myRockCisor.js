@@ -21,57 +21,54 @@ function getPlayerChoice() {
 }
 
 function playRound(playerChoice, theComputerChoice) {
-  //this is a first solution to be improved
+  //this is a second solution and we return a number
   playerChoice ??= playerChoice = "nullish";
-  if (playerChoice === "nullish") return "The game is canceled by user";
+  if (playerChoice === "nullish") return;
 
-  if (playerChoice === gameArray[0]) {
-    if (theComputerChoice === gameArray[0]) {
-      return "you have the same power so no one win";
-    }
-    if (theComputerChoice === gameArray[1]) {
-      return "you loose! Rock beats Scissors";
-    }
-    if (theComputerChoice === gameArray[2]) {
-      return "you WIINN! Scisors beats Paper";
-    }
+  if (playerChoice === theComputerChoice) {
+    return 0;
   }
-  if (playerChoice === gameArray[1]) {
-    if (theComputerChoice === gameArray[1]) {
-      return "you have the same power so no one win";
-    }
-    if (theComputerChoice === gameArray[2]) {
-      return "you loose! Paper beats Rock";
-    }
-    if (theComputerChoice === gameArray[0]) {
-      return "you WIINN! Rock beats Scissors";
-    }
-  }
-  if (playerChoice === gameArray[2]) {
-    if (theComputerChoice === gameArray[2]) {
-      return "you have the same power so no one win";
-    }
-    if (theComputerChoice === gameArray[0]) {
-      return "you loose! Scisors beats Paper";
-    }
-    if (theComputerChoice === gameArray[1]) {
-      return "you WIINN! Paper beats Rock";
-    }
-  }
+  if (
+    (playerChoice == "scissors" && theComputerChoice == "paper") ||
+    (playerChoice == "rock" && theComputerChoice == "scissors") ||
+    (playerChoice == "paper" && theComputerChoice == "rock")
+  ) {
+    return 1;
+  } else return -1;
 }
+
+//according to the scores a message is played every round and a final message is thrown at the end of five won round
 function game() {
-  for (let i = 0; i < 5; i++) {
+  let playerScore = 0;
+  let computerScore = 0;
+
+  do {
     const computerSelection = getComputerChoice();
     const playerSelection = getPlayerChoice();
-    console.log(playRound(playerSelection, computerSelection));
-  }
+    if (playerSelection === undefined) {
+      console.log("The game is canceled by user");
+      return;
+    }
+    if (playRound(playerSelection, computerSelection) > 0) {
+      playerScore++;
+      console.log("You Won this round");
+    } else if (playRound(playerSelection, computerSelection) < 0) {
+      computerScore++;
+      console.log("You lose this round");
+    } else console.log("it's a Tie");
+  } while (playerScore < 5 && computerScore < 5);
+  if (playerScore > computerScore) {
+    console.log("YOOUUU AARRE THE WIINNER!!!!!!!!!!!!");
+  } else console.log("you lose this game :(");
 }
 
+game();
+/*
 //this is to test one game
 const computerSelection = getComputerChoice();
 const playerSelection = getPlayerChoice();
 console.log(playRound(playerSelection, computerSelection));
-
+*/
 // console.log(getPlayerChoice("paper"));
 // console.log(getPlayerChoice("paper"));
 // console.log(getPlayerChoice("paper"));
