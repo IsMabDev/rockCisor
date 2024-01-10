@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#choice-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#player-choice-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5vh;
+}
+#results {
+  width: 100%;
+}
+#choice-result-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 10%;
+  align-items: center;
+  border: 3px solid;
+}
+#computer-choice-container {
+  padding-top: 12%;
+}
+.final-result {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10%;
+}
+h1,
+h2 {
+  text-align: center;
+  font-size: 1rem;
+}
+.round {
+  font-size: 1.5rem;
+  margin: 5% 0;
+}
+.final-message {
+  font-size: 2.5rem;
+  margin: 5%;
+}

@@ -4,11 +4,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
   <title>The Rock Cisor Paper Game</title>
 </head>
 
 <body>
+  <h1>Hello for my rock scissors paper game</h1>
+  <div id="choice-container">
+    <div id="player-choice-container">
+      <p>Please make your choice</p>
+      <div id="buttons-container">
+        <button type="button" id="scissors">Scissors</button>
+        <button type="button" id="rock">Rock</button>
+        <button type="button" id="paper">Paper</button>
+      </div>
+    </div>
+  </div>
+  <div id="choice-result-container">
+    <div>
+      <p>You choose</p>
+      <h2 id="player-choice"></h2>
+    </div>
+    <div>
+      <p>The computer choice is</p>
+      <h2 id="computer-choice"></h2>
+    </div>
+  </div>
 
+
+
+  <div id="results">
+    <div class="final-result">
+      <div class="player">
+        <h2 class="text-result">The player result</h2>
+        <h2 class="score">0</h2>
+      </div>
+      <div class="computer">
+        <h2 class="text-result">The computer result</h2>
+        <h2 class="score">0</h2>
+
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="round">You lose this round
+  </div>
+  <div class="final-message">You lose this round
+  </div>
+
+  <button type="button" id="new-game">Play a new game</button>
   <script src="./myRockCisor.js"></script>
 </body>
 
